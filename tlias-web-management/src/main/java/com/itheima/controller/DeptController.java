@@ -44,6 +44,7 @@ public class DeptController {
 		//调用service来查询数据
 		List<Dept> deptList= deptService.list();
 
-		return Result.success();
+		//这里接收mapper返回的信息并输出
+		return Result.success(deptList);
 	}
 }
