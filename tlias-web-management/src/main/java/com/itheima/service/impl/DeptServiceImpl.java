@@ -18,7 +18,6 @@ public class DeptServiceImpl implements DeptService {
 
 	@Override
 	public List<Dept> list() {
-
 		return deptMapper.list();//这里调用mapper的方法查询信息
 	}
 }

@@ -38,6 +38,7 @@ public class DeptController {
 	//@GetMapping("/depts")
 
 	//这里的Result为统一响应结果
+	//list是一个查询函数
 	public Result list(){
 		log.info("查询全部部门数据");
 
