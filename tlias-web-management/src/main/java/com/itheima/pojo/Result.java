@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+//统一响应结果，使用一个Result类进行封装
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
