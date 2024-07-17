@@ -10,6 +10,10 @@ import java.util.List;
 public interface DeptService {
 
 	/*
-	* 查询全部部门数据*/
+	* 查询全部部门数据
+	*
+	* 这里的接口时service的接口，主要是定义函数壳。
+	* 函数的实现在impl下的java文件中进行实现*/
+
 	List<Dept> list();
 }

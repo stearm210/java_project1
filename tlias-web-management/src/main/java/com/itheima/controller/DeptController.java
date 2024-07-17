@@ -22,8 +22,9 @@ import java.util.logging.Logger;
 @RestController
 public class DeptController {
 
-	//由于controller最终是需要调用service的，因此controller需要注入service代码
+	//由于controller最终是需要调用service的，因此controller需要注入service层的对象
 	@Autowired
+	//下面是加上了service的对象进行消息注入
 	private DeptService deptService;
 
 
