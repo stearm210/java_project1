@@ -17,6 +17,9 @@ import java.util.logging.Logger;
 //加上注解定义日志输出
 @Slf4j
 
+//优化：指定共同的路径，方便操作
+@RequestMapping("/depts")
+
 @RestController
 public class DeptController {
 
@@ -34,9 +37,9 @@ public class DeptController {
 	* */
 	//查询信息
 	//@RequestMapping用于指定当前接口的请求路径
-	@RequestMapping(value = "/depts",method = RequestMethod.GET)//指定接口的请求方式为get
+	//@RequestMapping (value = "/depts",method = RequestMethod.GET)//指定接口的请求方式为get
 
-	//@GetMapping("/depts")
+	@GetMapping
 
 	//这里的Result为统一响应结果
 	//list是一个查询函数
@@ -57,7 +60,7 @@ public class DeptController {
 	* */
 
 	//这里注解中的括号值参考接口文档进行编写
-	@DeleteMapping("/depts/{id}")
+	@DeleteMapping("/{id}")
 	//由于是获取接口路径id，因此需要在delete括号中加上注解@PathVariable进行id绑定
 	public Result delete(@PathVariable Integer id){
 		log.info("根据id删除部门:{}",id);
@@ -70,7 +73,7 @@ public class DeptController {
 	/*
 	* 增加数据操作
 	* */
-	@PostMapping("/depts")
+	@PostMapping
 	//由于需要使用类对象进行数据的接收，因此调用了注解@RequestBody进行类对象的接收
 	public Result add(@RequestBody Dept dept){
 		log.info("新增部门:{}",dept);
