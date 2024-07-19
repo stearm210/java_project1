@@ -58,6 +58,9 @@ public class DeptController {
 	* 删除部门信息操作
 	* */
 
+	public Result delete(){
+
+	}
 
 
 
