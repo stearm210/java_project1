@@ -27,10 +27,13 @@ public class DeptController {
 	//下面是加上了service的对象进行消息注入
 	private DeptService deptService;
 
-
 	//这里定义一个日志记录对象，用于显示日志
 	//private static Logger log= (Logger) LoggerFactory.getLogger(DeptController.class);
 
+
+	/*
+	* 查询部门信息操作
+	* */
 	//查询信息
 	//@RequestMapping用于指定当前接口的请求路径
 	@RequestMapping(value = "/depts",method = RequestMethod.GET)//指定接口的请求方式为get
@@ -48,4 +51,14 @@ public class DeptController {
 		//这里接收mapper返回的信息并输出
 		return Result.success(deptList);
 	}
+
+
+
+	/*
+	* 删除部门信息操作
+	* */
+
+
+
+
 }
