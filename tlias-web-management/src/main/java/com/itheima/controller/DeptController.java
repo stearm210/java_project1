@@ -40,7 +40,6 @@ public class DeptController {
 	//@RequestMapping (value = "/depts",method = RequestMethod.GET)//指定接口的请求方式为get
 
 	@GetMapping
-
 	//这里的Result为统一响应结果
 	//list是一个查询函数
 	public Result list(){
@@ -52,7 +51,6 @@ public class DeptController {
 		//这里接收mapper返回的信息并输出
 		return Result.success(deptList);
 	}
-
 
 
 	/*
@@ -81,4 +79,23 @@ public class DeptController {
 		deptService.add(dept);
 		return Result.success();
 	}
+
+	/*
+	* 修改部门操作:自己开发
+	* 思路：需要通过getmapping查询需要修改的id，之后进行修改
+	* 。修改完成之后，使用postmapping返回修改后的数据至数据库,也就是一个类对象的操作
+	* */
+	@GetMapping
+	public Result getById(@PathVariable Integer id){
+		log.info("获取部门ID:{}",id);
+		Dept dept=deptService.getByID(id);
+		return Result.success(dept);
+	}
+	@PostMapping
+	public Result update(@RequestBody Dept dept){
+		log.info("修改部门:{}",dept);
+		deptService.update(dept);
+		return Result.success();
+	}
+
 }

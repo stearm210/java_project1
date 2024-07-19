@@ -26,4 +26,11 @@ public interface DeptService {
 	* 增加信息操作
 	* */
 	void add(Dept dept);
+
+	/*
+	* 修改信息操作
+	* */
+	Dept getByID(Integer id);
+
+	void update(Dept dept);
 }
