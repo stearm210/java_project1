@@ -32,6 +32,6 @@ public interface DeptMapper {
 	/*
 	* 主要用于新增部门信息的操作
 	* */
-	@Insert("insert into dept(name,create_time,update_name) values (#{name},#{createTime},#{updateTime})")
+	@Insert("insert into dept(name,create_time,update_time) values (#{name},#{createTime},#{updateTime})")
 	void insert(Dept dept);
 }
