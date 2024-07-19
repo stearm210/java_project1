@@ -66,4 +66,16 @@ public class DeptController {
 		return Result.success();
 	}
 
+
+	/*
+	* 增加数据操作
+	* */
+	@PostMapping("/depts")
+	//由于需要使用类对象进行数据的接收，因此调用了注解@RequestBody进行类对象的接收
+	public Result add(@RequestBody Dept dept){
+		log.info("新增部门:{}",dept);
+		//调用service中的方法完成新增部门的操作
+		deptService.add(dept);
+		return Result.success();
+	}
 }

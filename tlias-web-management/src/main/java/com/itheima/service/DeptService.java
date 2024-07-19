@@ -21,4 +21,9 @@ public interface DeptService {
 	* 删除信息操作
 	* */
 	void delete(Integer id);
+
+	/*
+	* 增加信息操作
+	* */
+	void add(Dept dept);
 }
