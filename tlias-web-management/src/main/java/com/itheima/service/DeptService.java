@@ -16,4 +16,9 @@ public interface DeptService {
 	* 函数的实现在impl下的java文件中进行实现*/
 
 	List<Dept> list();
+
+	/*
+	* 删除信息操作
+	* */
+	void delete(Integer id);
 }

@@ -20,4 +20,9 @@ public class DeptServiceImpl implements DeptService {
 	public List<Dept> list() {
 		return deptMapper.list();//这里调用mapper的方法查询信息
 	}
+
+	@Override
+	public void delete(Integer id) {
+		deptMapper.deleteById(id);
+	}
 }

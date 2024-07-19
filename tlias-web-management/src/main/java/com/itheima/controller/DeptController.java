@@ -6,9 +6,7 @@ import com.itheima.service.DeptService;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.logging.Logger;
@@ -58,10 +56,14 @@ public class DeptController {
 	* 删除部门信息操作
 	* */
 
-	public Result delete(){
-
+	//这里注解中的括号值参考接口文档进行编写
+	@DeleteMapping("/depts/{id}")
+	//由于是获取接口路径id，因此需要在delete括号中加上注解@PathVariable进行id绑定
+	public Result delete(@PathVariable Integer id){
+		log.info("根据id删除部门:{}",id);
+		//调用service删除
+		deptService.delete(id);
+		return Result.success();
 	}
-
-
 
 }

@@ -1,6 +1,7 @@
 package com.itheima.mapper;
 
 import com.itheima.pojo.Dept;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -19,4 +20,11 @@ public interface DeptMapper {
 
 	//在dept数据库当中查询到的信息会使用一个list进行返回
 	List<Dept> list();
+
+	/*
+	* 根据id信息删除部门中的信息
+	* */
+	//使用删除注解调用SQL语句
+	@Delete("delete from dept where id = #{id}")
+	void deleteById(Integer id);
 }
