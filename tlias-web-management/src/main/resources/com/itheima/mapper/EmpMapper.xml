@@ -5,12 +5,21 @@
 <!--namespace中为需要进行动态SQL编写的mapper文件地址-->
 <!--select的id为函数名，resultType为函数返回的类型的地址-->
 <mapper namespace="com.itheima.mapper.EmpMapper">
+<!--	条件查询-->
 	<select id="list" resultType="com.itheima.pojo.Emp">
 		select *
 		from emp
-		where name like concat('%', #{name}, '%')
-		  and gender = #{gender}
-		  and entrydate between #{start} and #{end}
+		<where>
+			<if test="name != null">
+				name like concat('%', #{name}, '%')
+			</if>
+			<if test="gender != null">
+				and gender = #{gender}
+			</if>
+			<if test="begin != null and end != null">
+				and entrydate between #{start} and #{end}
+			</if>
+		</where>
 		order by update_time desc;
 	</select>
 </mapper>
