@@ -6,9 +6,15 @@
 <!--select的id为函数名，resultType为函数返回的类型的地址-->
 <mapper namespace="com.itheima.mapper.EmpMapper">
 
-<!--	批量删除元素的操作-->
+	<!--	批量删除元素的操作-->
 	<delete id="delete">
-
+		select *
+		from emp
+		where id in (1, 2, 3)
+-- 		这里的foreach标签中夹杂的#{id}是对应的遍历路径标签
+		<foreach collection="ids" item="id" separator="," open="(" close=")">
+			#{id}
+		</foreach>
 	</delete>
 
 	<!--	条件查询-->
