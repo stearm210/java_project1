@@ -26,4 +26,6 @@ public interface EmpMapper {
 	//pagehelper插件分页查询
 	@Select("select * from emp")
 	public List<Emp> list();
+
+
 }
