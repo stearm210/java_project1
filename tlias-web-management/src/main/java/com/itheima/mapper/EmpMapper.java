@@ -12,11 +12,18 @@ import java.util.List;
  */
 @Mapper
 public interface EmpMapper {
-	//查询总记录数
-	@Select("select count(*) from emp")
-	public Long count();
+//	//查询总记录数
+//	@Select("select count(*) from emp")
+//	public Long count();
+//
+//	//查询记录数
+//	@Select("select * from emp limit #{start},#{pageSize}")
+//	public List<Emp> page(Integer start,Integer pageSize);
 
-	//查询记录数
-	@Select("select * from emp limit #{start},#{pageSize}")
-	public List<Emp> page(Integer start,Integer pageSize);
+	/*
+	* 员工信息的查询
+	* */
+	//pagehelper插件分页查询
+	@Select("select * from emp")
+	public List<Emp> list();
 }

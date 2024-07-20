@@ -1,5 +1,7 @@
 package com.itheima.service.impl;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import com.itheima.mapper.EmpMapper;
 import com.itheima.pojo.Emp;
 import com.itheima.pojo.PageBean;
@@ -15,16 +17,33 @@ public class EmpServiceImpl implements EmpService {
 	@Autowired
 	private EmpMapper empMapper;
 
+//	@Override
+//	public PageBean page(Integer page, Integer pageSize) {
+//		//1.获取总记录数
+//		Long count=empMapper.count();
+//		//2.获取分页查询的结果列表
+//		Integer start=(page-1)*pageSize;
+//		List<Emp> empList = empMapper.page(start, pageSize);
+//
+//		//3.封装pageBean对象
+//		PageBean pageBean = new PageBean(count, empList);
+//
+//		return pageBean;
+//	}
+
+
+	///插件分页查询
 	@Override
 	public PageBean page(Integer page, Integer pageSize) {
-		//1.获取总记录数
-		Long count=empMapper.count();
-		//2.获取分页查询的结果列表
-		Integer start=(page-1)*pageSize;
-		List<Emp> empList = empMapper.page(start, pageSize);
+		//1.设置分页参数
+		//选择查询范围
+		PageHelper.startPage(page,pageSize);
+		//2.执行查询
+		List<Emp> empList = empMapper.list();
+		Page<Emp> p=(Page<Emp>) empList;
 
 		//3.封装pageBean对象
-		PageBean pageBean = new PageBean(count, empList);
+		PageBean pageBean = new PageBean(p.getTotal(),p.getResult());
 
 		return pageBean;
 	}
