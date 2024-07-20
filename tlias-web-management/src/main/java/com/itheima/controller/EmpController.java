@@ -7,25 +7,25 @@ import com.itheima.service.EmpService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 /**
  * 员工管理Controller
  */
 @Slf4j
 @RestController
+//同一路径问题
+@RequestMapping("/emps")
 public class EmpController {
 
 	//注入service接口
 	@Autowired
 	private EmpService empService;
 
-	@GetMapping("/emps")
+	@GetMapping
 	//这里使用@RequestParam来设置默认值
 	//@DateTimeFormat注解用于声明日期的形式
 	public Result page(@RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "10") Integer pageSize, String name, Short gender, @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate begin, @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate end){
@@ -43,8 +43,12 @@ public class EmpController {
 	}
 
 	//批量删除操作
-	@DeleteMapping("/emps/{ids}")
-	public Result delete(){
+	@DeleteMapping("/{ids}")
+
+	//@PathVariable 这是一个路径参数
+	public Result delete(@PathVariable List<Integer> ids){
+		log.info("批量删除操作,ids:{}",ids);
+
 
 	}
 }
