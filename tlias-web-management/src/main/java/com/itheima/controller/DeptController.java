@@ -71,7 +71,7 @@ public class DeptController {
 	/*
 	* 增加数据操作
 	* */
-	@PostMapping
+	@PutMapping
 	//由于需要使用类对象进行数据的接收，因此调用了注解@RequestBody进行类对象的接收
 	public Result add(@RequestBody Dept dept){
 		log.info("新增部门:{}",dept);
@@ -85,7 +85,7 @@ public class DeptController {
 	* 思路：需要通过getmapping查询需要修改的id，之后进行修改
 	* 。修改完成之后，使用postmapping返回修改后的数据至数据库,也就是一个类对象的操作
 	* */
-	@GetMapping
+	@GetMapping("/{id}")
 	public Result getById(@PathVariable Integer id){
 		log.info("获取部门ID:{}",id);
 		Dept dept=deptService.getByID(id);
