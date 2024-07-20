@@ -30,4 +30,8 @@ public interface EmpMapper {
 	public List<Emp> list(String name, Short gender, LocalDate begin, LocalDate end);
 
 
+	/*
+	* 批量删除的操作
+	* */
+	void delete(List<Integer> ids);
 }

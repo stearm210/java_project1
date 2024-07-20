@@ -48,4 +48,12 @@ public class EmpServiceImpl implements EmpService {
 
 		return pageBean;
 	}
+
+	/*
+	* 批量删除
+	* */
+	@Override
+	public void delete(List<Integer> ids) {
+		empMapper.delete(ids);
+	}
 }

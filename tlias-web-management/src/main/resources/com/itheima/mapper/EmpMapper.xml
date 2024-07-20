@@ -5,7 +5,13 @@
 <!--namespace中为需要进行动态SQL编写的mapper文件地址-->
 <!--select的id为函数名，resultType为函数返回的类型的地址-->
 <mapper namespace="com.itheima.mapper.EmpMapper">
-<!--	条件查询-->
+
+<!--	批量删除元素的操作-->
+	<delete id="delete">
+
+	</delete>
+
+	<!--	条件查询-->
 	<select id="list" resultType="com.itheima.pojo.Emp">
 		select *
 		from emp

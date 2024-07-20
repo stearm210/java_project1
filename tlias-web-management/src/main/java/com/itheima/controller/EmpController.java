@@ -45,10 +45,12 @@ public class EmpController {
 	//批量删除操作
 	@DeleteMapping("/{ids}")
 
-	//@PathVariable 这是一个路径参数
+	//@PathVariable注解的作用是将 URL 中的路径变量绑定到方法的参数上
+	//1.当 URL 中包含占位符（如 /users/{id}）时，@PathVariable 注解可以将占位符的值提取出来作为方法参数的值。
+	///users/{id} 可以匹配任意用户 ID 的请求，而 @PathVariable 注解可以将实际的用户 ID 提取出来，供方法使用。
 	public Result delete(@PathVariable List<Integer> ids){
 		log.info("批量删除操作,ids:{}",ids);
-
-
+		empService.delete(ids);
+		return Result.success();
 	}
 }
