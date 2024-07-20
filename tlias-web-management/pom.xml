@@ -65,6 +65,14 @@
 			<scope>test</scope>
 		</dependency>
 
+<!--		pagehelper分页插件引入
+jdk17-可以使用1.4.6版本-->
+		<dependency>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper-spring-boot-starter</artifactId>
+			<version>1.4.6</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.mybatis.spring.boot</groupId>
 			<artifactId>mybatis-spring-boot-starter-test</artifactId>
