@@ -5,6 +5,7 @@ import com.itheima.pojo.Emp;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -24,8 +25,9 @@ public interface EmpMapper {
 	* 员工信息的查询
 	* */
 	//pagehelper插件分页查询
-	@Select("select * from emp")
-	public List<Emp> list();
+	//@Select("select * from emp ")
+	//使用xml文件进行动态SQL查询
+	public List<Emp> list(String name, Short gender, LocalDate begin, LocalDate end);
 
 
 }

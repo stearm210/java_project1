@@ -34,7 +34,7 @@ public class EmpController {
 
 		//调用service层方法
 		//返回pagebean对象
-		PageBean pageBean=empService.page(page,pageSize);
+		PageBean pageBean=empService.page(page,pageSize,name,gender,begin,end);
 
 		//像这种多类型数据，上面已经封装成了一个对象返回，这里只需要返回统一结果Result
 		return Result.success(pageBean);
