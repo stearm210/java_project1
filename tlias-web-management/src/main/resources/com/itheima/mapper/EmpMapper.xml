@@ -7,11 +7,9 @@
 <mapper namespace="com.itheima.mapper.EmpMapper">
 
 	<!--	批量删除元素的操作-->
+<!--	这里的foreach标签中夹杂的#{id}是对应的遍历路径标签-->
 	<delete id="delete">
-		select *
-		from emp
-		where id in (1, 2, 3)
--- 		这里的foreach标签中夹杂的#{id}是对应的遍历路径标签
+		delete from emp where id in
 		<foreach collection="ids" item="id" separator="," open="(" close=")">
 			#{id}
 		</foreach>
