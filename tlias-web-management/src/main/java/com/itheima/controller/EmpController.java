@@ -7,6 +7,7 @@ import com.itheima.service.EmpService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -39,6 +40,11 @@ public class EmpController {
 		//像这种多类型数据，上面已经封装成了一个对象返回，这里只需要返回统一结果Result
 		return Result.success(pageBean);
 
+	}
+
+	//批量删除操作
+	@DeleteMapping("/emps/{ids}")
+	public Result delete(){
 
 	}
 }
