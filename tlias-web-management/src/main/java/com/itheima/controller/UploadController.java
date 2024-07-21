@@ -21,6 +21,9 @@ public class UploadController {
 		//获取原始文件名
 		String originalFilename = image.getOriginalFilename();
 
+		//构造唯一的上传文件名，防止被后续上传文件覆盖
+
+
 		//将文件存储到服务器的磁盘目录中
 		image.transferTo(new File("E:\\java study\\datebase\\"+originalFilename));
 
